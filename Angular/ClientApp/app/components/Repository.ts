@@ -54,6 +54,9 @@ export class Repository {
             this.modalRef = this.modalService.show(SignOutComponent, { ignoreBackdropClick: true });
         }
     }
+    public changeFromVS() {
+
+    }
     private handleError1(error: any) {
 
         if (error.status === 0) {
