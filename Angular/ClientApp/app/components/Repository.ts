@@ -14,6 +14,11 @@ export class Repository {
             .toPromise().then(response => response.json())
             .catch(error => { this.handleError(error); });
     }
+      public async PostAsyn1(Url: string, Model: any) {
+        return await this.http.post(Url, Model, this.GetHttpHeader())
+            .toPromise().then(response => response.json())
+            .catch(error => { this.handleError(error); });
+    }
 
     public async PostAsyn(Url: string, Model: any) {
         return await this.http.post(Url, Model, this.GetHttpHeader())
