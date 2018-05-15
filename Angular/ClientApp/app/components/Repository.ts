@@ -25,6 +25,11 @@ export class Repository {
             .toPromise().then(response => response.json())
             .catch(error => { this.handleError(error); });
     }
+    public async PutAsyn1(Url: string, Model: any) {
+        return await this.http.put(Url, Model, this.GetHttpHeader())
+            .toPromise().then(response => response.json())
+            .catch(error => { this.handleError(error); });
+    }
     public async DeleteAsyn(Url: string) {
         return await this.http.delete(Url, this.GetHttpHeader())
             .toPromise().then(response => response.json())
