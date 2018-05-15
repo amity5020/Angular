@@ -1,0 +1,42 @@
+<div class="container-fluid" *ngIf="this.formToOpen==1">
+    <EmployeeUpdate [ipmodel]="this.empmodel"></EmployeeUpdate>
+</div>
+<div class="container-fluid" *ngIf="this.formToOpen==0">
+    <h1>Employee's</h1>
+    <p>All Employees</p>
+    <div class="row">
+        <li [routerLinkActive]="['link-active']">
+            <a  [routerLink]="['/EmployeeCreate']">
+                <span class='glyphicon glyphicon-education'></span> Add Employee
+            </a>
+        </li>
+    </div>
+<div class="row table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Mobile</td>
+                <td>Email</td>
+                <td>Salary</td>
+                <td>Designation</td>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of this.EmployeeList">
+                <td>{{item.employeeName}}</td>
+                <td>{{item.employeeAddress}}</td>
+                <td>{{item.mobileNo}}</td>
+                <td>{{item.emailId}}</td>
+                <td>{{item.salary}}</td>
+                <td>{{item.designationName}}</td>
+                <td><button class="btn btn-warning" (click)="Edit(item)">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="Delete(item.employeeId)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

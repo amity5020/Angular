@@ -1,0 +1,50 @@
+﻿
+<div class="container">
+    <h1>Employee's</h1>
+    <p>
+        All Employees  <li [routerLinkActive]="['link-active']">
+            <a [routerLink]="['/home']">
+                <span class='glyphicon glyphicon-home'></span> Back To List
+            </a>
+        </li>
+    </p>
+    <div class="row">
+        <div class="col-md-4">Employee Name</div>
+        <div class="col-md-6"><input type="text" [(ngModel)]=" this.model.EmployeeName" class="form-control" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">Employee Address</div>
+        <div class="col-md-6"><input type="text" [(ngModel)]=" this.model.EmployeeAddress" class="form-control" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">Mobile Number</div>
+        <div class="col-md-6"><input type="text" [(ngModel)]=" this.model.MobileNo" class="form-control" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">Email Id</div>
+        <div class="col-md-6"><input type="text" [(ngModel)]=" this.model.EmailId" class="form-control" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">Salary</div>
+        <div class="col-md-6"><input type="text" [(ngModel)]=" this.model.Salary" class="form-control" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">Designation</div>
+        <div class="col-md-6">
+            <select class="form-control" [(ngModel)]=" this.model.Designation">
+                <option [ngValue]="0">Select</option>
+                <option *ngFor="let item of this.designationList" [ngValue]="item.designationId">{{item.designationName}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <input type="button" value="Save" class="btn btn-success"  (click)="SaveEmployee()" />
+        
+    </div>
+
+</div>
