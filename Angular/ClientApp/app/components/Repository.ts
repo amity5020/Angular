@@ -1,3 +1,4 @@
+
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable, Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -14,6 +15,8 @@ export class Repository {
             .toPromise().then(response => response.json())
             .catch(error => { this.handleError(error); });
     }
+    public ChangeFromGIT()
+    {}
     public async PostAsyn1(Url: string, Model: any) {
         return await this.http.post(Url, Model, this.GetHttpHeader())
             .toPromise().then(response => response.json())
