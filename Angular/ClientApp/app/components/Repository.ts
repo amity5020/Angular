@@ -14,11 +14,6 @@ export class Repository {
             .toPromise().then(response => response.json())
             .catch(error => { this.handleError(error); });
     }
-      public async PostAsyn1(Url: string, Model: any) {
-        return await this.http.post(Url, Model, this.GetHttpHeader())
-            .toPromise().then(response => response.json())
-            .catch(error => { this.handleError(error); });
-    }
 
     public async PostAsyn(Url: string, Model: any) {
         return await this.http.post(Url, Model, this.GetHttpHeader())
@@ -37,6 +32,21 @@ export class Repository {
     }
     private handleError(error: any) {
        
+        if (error.status === 0) {
+            this.modalRef = this.modalService.show(ModalContentComponent);
+        }
+        if (error.status === 401) {
+            SignOutComponent.ErrorCode = 401;
+            this.modalRef = this.modalService.show(SignOutComponent, { ignoreBackdropClick: true });
+        }
+
+        if (error.status === 410) {
+            SignOutComponent.ErrorCode = 410;
+            this.modalRef = this.modalService.show(SignOutComponent, { ignoreBackdropClick: true });
+        }
+    }
+    private handleError1(error: any) {
+
         if (error.status === 0) {
             this.modalRef = this.modalService.show(ModalContentComponent);
         }
